@@ -10,7 +10,7 @@ Ein statischer Web-Prototyp für projektbezogene Material-Leistungsverzeichnisse
 
 - Projektangaben für Dachart, Fläche, Ausrichtung und Ziel-Leistung
 - Dachplan als PDF oder Bild laden (bei PDFs Seite wählen), Massstab anhand einer bekannten Strecke kalibrieren und nutzbare Fläche per Klick markieren
-- Hindernisflächen abziehen, Modulformat und Abstände einstellen sowie erste geometrische Modulbelegung berechnen
+- Hindernisflächen abziehen, Modulformat (gängige Abmessungen oder benutzerdefiniert) und Abstände einstellen sowie die bessere Portrait-/Landscape-Belegung vergleichen
 - Modulanzahl, Modul-Belegungsfläche und bearbeitete Dachfläche als prüfpflichtige Positionen ins LV übernehmen
 - Neutrale Materialanforderungen für Module, Unterkonstruktion, Wechselrichter, Optimierer, Kabel, Überspannungsschutz sowie Erdung/Blitzschutz
 - Lieferantenprodukte manuell erfassen oder per CSV importieren
