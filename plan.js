@@ -3,7 +3,7 @@ const KEY='pv-plan-meta-v1', DB='pv-plan-files-v1';
 const $=s=>document.querySelector(s);
 let meta=JSON.parse(localStorage.getItem(KEY)||'{}'), image=null, dims={w:0,h:0}, mode='area', points=[], exclusions=[], calibration=[];
 const box=$('#planCanvas'), svg=$('#planOverlay'), img=$('#planImage'), stage=$('#planStage'), dialog=$('#planDialog'), dialogTarget=$('#planDialogTarget');
-dialogTarget.appendChild(document.querySelector('#planTools'));dialogTarget.appendChild(box);let zoom=1;
+dialogTarget.appendChild(document.querySelector('#pdfControls'));dialogTarget.appendChild(document.querySelector('#planTools'));dialogTarget.appendChild(box);let zoom=1;
 function db(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore('files');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
 async function fileStore(method,value){const d=await db();return new Promise((resolve,reject)=>{const tx=d.transaction('files','readwrite'),s=tx.objectStore('files'),r=method==='put'?s.put(value,'plan'):s.get('plan');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
 function save(){localStorage.setItem(KEY,JSON.stringify(meta))}
