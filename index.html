@@ -49,6 +49,7 @@
           </div>
           <div class="plan-canvas" id="planCanvas" hidden><img id="planImage" alt="Geladener Dachplan"><svg id="planOverlay" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-label="Dachfläche und Modulbelegung"></svg></div>
           <div class="plan-settings">
+            <label>Modulformat<select id="modulePreset"><option value="1762x1134">Standard 1’762 × 1’134 mm</option><option value="1722x1134">Kompakt 1’722 × 1’134 mm</option><option value="custom">Benutzerdefiniert</option></select></label>
             <label>Modulbreite<input id="moduleW" type="number" min="500" max="2500" value="1134"><small>mm</small></label>
             <label>Modulhöhe<input id="moduleH" type="number" min="500" max="3000" value="1762"><small>mm</small></label>
             <label>Abstand<input id="moduleGap" type="number" min="0" max="100" value="20"><small>cm</small></label>
