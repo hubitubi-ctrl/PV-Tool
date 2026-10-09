@@ -9,7 +9,7 @@ Ein statischer Web-Prototyp für projektbezogene Material-Leistungsverzeichnisse
 ## Funktionen
 
 - Projektangaben für Dachart, Fläche, Ausrichtung und Ziel-Leistung
-- Dachplan als PNG/JPG/WebP laden, Massstab anhand einer bekannten Strecke kalibrieren und nutzbare Fläche per Klick markieren
+- Dachplan als PDF oder Bild laden (bei PDFs Seite wählen), Massstab anhand einer bekannten Strecke kalibrieren und nutzbare Fläche per Klick markieren
 - Hindernisflächen abziehen, Modulformat und Abstände einstellen sowie erste geometrische Modulbelegung berechnen
 - Modulanzahl, Modul-Belegungsfläche und bearbeitete Dachfläche als prüfpflichtige Positionen ins LV übernehmen
 - Neutrale Materialanforderungen für Module, Unterkonstruktion, Wechselrichter, Optimierer, Kabel, Überspannungsschutz sowie Erdung/Blitzschutz
@@ -30,4 +30,4 @@ GitHub Pages muss im Repository unter **Settings → Pages** als Build-Quelle **
 
 Die eingebauten Einträge sind neutrale technische Anforderungen, keine bestätigten Shopartikel. Die App ruft keine Preise, Lagerbestände oder Shopseiten automatisch ab. Shopdaten werden vorerst via CSV oder manuell eingebunden; automatische Katalogfeeds benötigen eine freigegebene Lieferantenschnittstelle.
 
-Die Modulzahl aus dem Dachplan ist eine geometrische Vorplanung auf Basis des markierten Polygons, Kalibrierung, Modulmass und Rasterabstand. Randabstände, Dachaufbauten, Brandschutzwege, Statik sowie Wind-/Schneelasten sind nicht automatisch geprüft. PDF-Pläne müssen vorerst als PNG/JPG/WebP exportiert werden. Die Resultate sind prüfpflichtig. Unterkonstruktion, Ballastierung, Kabel, Stringaufteilung und Schutzkomponenten müssen projektspezifisch ausgelegt werden. Vor dem Versand sind Produktwahl, Mengen und Anforderungen fachlich zu prüfen.
+Die Modulzahl aus dem Dachplan ist eine geometrische Vorplanung auf Basis des markierten Polygons, Kalibrierung, Modulmass und Rasterabstand. Randabstände, Dachaufbauten, Brandschutzwege, Statik sowie Wind-/Schneelasten sind nicht automatisch geprüft. PDF-Anzeige verwendet PDF.js und benötigt beim Öffnen eine Internetverbindung; die Plandatei selbst bleibt lokal im Browser. Die Resultate sind prüfpflichtig. Unterkonstruktion, Ballastierung, Kabel, Stringaufteilung und Schutzkomponenten müssen projektspezifisch ausgelegt werden. Vor dem Versand sind Produktwahl, Mengen und Anforderungen fachlich zu prüfen.
