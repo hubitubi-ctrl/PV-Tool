@@ -39,6 +39,25 @@
       </aside>
 
       <section class="main-panel">
+        <section class="plan-card">
+          <div class="plan-header"><div><p class="eyebrow">PROJEKTSTART · DACHPLAN</p><h2>Fläche und Modulbelegung</h2><p>Planbild laden, Massstab setzen und die nutzbare Dachfläche markieren.</p></div><label class="button button-outline upload-plan">Planbild laden<input id="planFile" type="file" accept="image/png,image/jpeg,image/webp" hidden></label></div>
+          <div class="plan-tools">
+            <label>Arbeitsschritt<select id="planMode"><option value="area">Nutzbare Fläche markieren</option><option value="calibrate">Massstab kalibrieren</option><option value="exclude">Hindernis / Sperrfläche markieren</option></select></label>
+            <label>Bekannte Strecke<input id="knownDistance" type="number" min="0.1" step="0.01" value="5"><small>m</small></label>
+            <button class="button button-quiet" id="finishPolygon">Fläche abschliessen</button><button class="button button-quiet" id="clearDraft">Markierung verwerfen</button><button class="button button-quiet" id="clearPlan">Plan zurücksetzen</button>
+          </div>
+          <div class="plan-canvas" id="planCanvas" hidden><img id="planImage" alt="Geladener Dachplan"><svg id="planOverlay" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-label="Dachfläche und Modulbelegung"></svg></div>
+          <div class="plan-settings">
+            <label>Modulbreite<input id="moduleW" type="number" min="500" max="2500" value="1134"><small>mm</small></label>
+            <label>Modulhöhe<input id="moduleH" type="number" min="500" max="3000" value="1762"><small>mm</small></label>
+            <label>Abstand<input id="moduleGap" type="number" min="0" max="100" value="20"><small>cm</small></label>
+            <label>Belegungswinkel<input id="arrayRotation" type="number" min="-90" max="90" value="0"><small>°</small></label>
+            <button class="button button-primary" id="calculateLayout">Modulbelegung berechnen</button>
+          </div>
+          <div class="plan-results"><div><span>Nutzbare Fläche</span><strong id="planAreaResult">–</strong></div><div><span>Module im Raster</span><strong id="moduleCountResult">–</strong></div><div><span>Modulfläche</span><strong id="moduleAreaResult">–</strong></div><button class="button button-outline" id="sendPlanToLv">Mengen ins LV übernehmen</button></div>
+          <p class="plan-status" id="planStatus">Noch kein Plan geladen. Geeignet sind PNG-, JPG- oder WebP-Bilder; PDF-Seiten bitte als Bild exportieren.</p>
+          <p class="plan-caveat">Die Belegung ist eine geometrische Vorplanung. Randabstände, Dachaufbauten, Brandschutzwege, Statik, Wind-/Schneelasten und Herstellervorgaben müssen vor Ausschreibung geprüft werden.</p>
+        </section>
         <div class="summary-grid">
           <article class="summary-card"><span>PROJEKT</span><strong id="summaryProject">Neues PV-Projekt</strong><small id="summaryRoof">Flachdach · Süd</small></article>
           <article class="summary-card"><span>ZIEL-LEISTUNG</span><strong><b id="summaryKwp">60</b> <em>kWp</em></strong><small id="summaryModules">Modulanzahl offen</small></article>
@@ -59,6 +78,6 @@
   <dialog id="productDialog" class="modal"><form method="dialog" id="productForm"><div class="modal-header"><div><p class="eyebrow">KATALOG</p><h2>Produkt ergänzen</h2></div><button class="icon-button" value="cancel" aria-label="Schliessen">×</button></div><div class="modal-grid"><label>Produktname<input name="name" required placeholder="z. B. PV-Modul 450 Wp"></label><label>Lieferant<input name="supplier" placeholder="Solarmarkt, TRITEC, eigener Lieferant"></label><label>Kategorie<select name="category"><option>PV-Module</option><option>Unterkonstruktion</option><option>Wechselrichter</option><option>Leistungsoptimierer</option><option>Kabel & Steckverbinder</option><option>Überspannungsschutz</option><option>Erdung & Blitzschutz</option><option>Sonstiges Material</option></select></label><label>Artikelnummer<input name="sku" placeholder="Optional"></label><label>Leistung pro Modul<input name="powerWp" type="number" min="0" placeholder="Nur für Module, Wp"></label><label>Einheit<input name="unit" placeholder="Stk., m, Set ..." value="Stk."></label><label class="full">Technische Beschreibung<textarea name="description" rows="3" placeholder="Technische Merkmale und Nachweise"></textarea></label><label class="full">Produktlink<input name="url" type="url" placeholder="https://..."></label></div><div class="modal-actions"><button class="button button-quiet" value="cancel">Abbrechen</button><button class="button button-primary" id="saveProduct" value="default">Speichern</button></div></form></dialog>
   <dialog id="lineDialog" class="modal"><form method="dialog" id="lineForm"><div class="modal-header"><div><p class="eyebrow">LEISTUNGSVERZEICHNIS</p><h2>Materialposition hinzufügen</h2></div><button class="icon-button" value="cancel" aria-label="Schliessen">×</button></div><div class="modal-grid"><label>Kategorie<select name="category"><option>PV-Module</option><option>Unterkonstruktion</option><option>Wechselrichter</option><option>Leistungsoptimierer</option><option>Kabel & Steckverbinder</option><option>Überspannungsschutz</option><option>Erdung & Blitzschutz</option><option>Sonstiges Material</option></select></label><label>Menge<input name="quantity" type="number" min="0" step="any" placeholder="Leer lassen, falls offen"></label><label>Einheit<input name="unit" value="Stk." placeholder="Stk., m, Set"></label><label>Auslegung<select name="quantityStatus"><option value="fixed">Menge bekannt</option><option value="open">Durch Anbieter zu ermitteln</option><option value="review">Fachplanung muss prüfen</option></select></label><label class="full">Leistungsbeschrieb<textarea name="description" rows="4" required placeholder="Neutrale technische Anforderung, z. B. Unterkonstruktion passend zur Dachart und Auslegung inkl. erforderlicher Verbinder und Befestiger"></textarea></label><label class="full">Referenzprodukt / Lieferant<input name="productLabel" placeholder="Optional; technische Gleichwertigkeit zulassen"></label></div><div class="modal-actions"><button class="button button-quiet" value="cancel">Abbrechen</button><button class="button button-primary" id="saveLine" value="default">Position übernehmen</button></div></form></dialog>
 
-  <script src="./app.js"></script>
+  <script src="./app.js"></script>\n  <script src="./plan.js"></script>
 </body>
 </html>
