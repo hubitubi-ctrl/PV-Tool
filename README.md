@@ -21,7 +21,7 @@ Spaltenüberschriften: `Produktname`/`name`, `Lieferant`/`supplier`, `Kategorie`
 
 ## GitHub Pages
 
-Den Inhalt dieses Ordners ins Root-Verzeichnis des Repositorys kopieren. Der Workflow unter `.github/workflows/pages.yml` veröffentlicht anschliessend bei Pushs auf `main`. GitHub Pages muss im Repository aktiviert sein.
+GitHub Pages muss im Repository unter **Settings → Pages** als Build-Quelle **GitHub Actions** aktiviert sein. Danach den Workflow **Publish PV Beschaffungsassistent** im Tab **Actions** manuell starten. Die App wird damit als Pages-Site veröffentlicht.
 
 ## Grenzen des Prototyps
 
