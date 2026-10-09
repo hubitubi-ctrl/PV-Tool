@@ -9,7 +9,8 @@ Ein statischer Web-Prototyp für projektbezogene Material-Leistungsverzeichnisse
 ## Funktionen
 
 - Projektangaben für Dachart, Fläche, Ausrichtung und Ziel-Leistung
-- Dachplan als PDF oder Bild laden (bei PDFs Seite wählen), Massstab anhand einer bekannten Strecke kalibrieren und nutzbare Fläche per Klick markieren
+- Dachplan als PDF oder Bild laden; Massstab über eine eigene Schaltfläche in einer zoombaren Planansicht kalibrieren und Fläche/Hindernisse dort markieren
+- Himmelsrichtung, Standortkoordinaten, Dachneigung und Systemverluste für eine vorläufige PVGIS-Jahresprognose übergeben; Ost-West wird mit zwei getrennten Halb-Leistungs-Abfragen abgebildet
 - Hindernisflächen abziehen, Modulformat (gängige Abmessungen oder benutzerdefiniert) und Abstände einstellen sowie die bessere Portrait-/Landscape-Belegung vergleichen
 - Modulanzahl, Modul-Belegungsfläche und bearbeitete Dachfläche als prüfpflichtige Positionen ins LV übernehmen
 - Neutrale Materialanforderungen für Module, Unterkonstruktion, Wechselrichter, Optimierer, Kabel, Überspannungsschutz sowie Erdung/Blitzschutz
@@ -30,4 +31,4 @@ GitHub Pages muss im Repository unter **Settings → Pages** als Build-Quelle **
 
 Die eingebauten Einträge sind neutrale technische Anforderungen, keine bestätigten Shopartikel. Die App ruft keine Preise, Lagerbestände oder Shopseiten automatisch ab. Shopdaten werden vorerst via CSV oder manuell eingebunden; automatische Katalogfeeds benötigen eine freigegebene Lieferantenschnittstelle.
 
-Die Modulzahl aus dem Dachplan ist eine geometrische Vorplanung auf Basis des markierten Polygons, Kalibrierung, Modulmass und Rasterabstand. Randabstände, Dachaufbauten, Brandschutzwege, Statik sowie Wind-/Schneelasten sind nicht automatisch geprüft. PDF-Anzeige verwendet PDF.js und benötigt beim Öffnen eine Internetverbindung; die Plandatei selbst bleibt lokal im Browser. Die Resultate sind prüfpflichtig. Unterkonstruktion, Ballastierung, Kabel, Stringaufteilung und Schutzkomponenten müssen projektspezifisch ausgelegt werden. Vor dem Versand sind Produktwahl, Mengen und Anforderungen fachlich zu prüfen.
+Die Modulzahl aus dem Dachplan ist eine geometrische Vorplanung auf Basis des markierten Polygons, Kalibrierung, Modulmass und Rasterabstand. Randabstände, Dachaufbauten, Brandschutzwege, Statik sowie Wind-/Schneelasten sind nicht automatisch geprüft. PDF-Anzeige verwendet PDF.js und benötigt beim Öffnen eine Internetverbindung; die Plandatei selbst bleibt lokal im Browser. Für die PVGIS-Prognose öffnet sich der offizielle JRC-Dienst in einem neuen Tab; PVGIS erlaubt keine AJAX-Aufrufe direkt aus dem Browser. Die Jahresproduktion ist im Ergebnis unter `E_y` ausgewiesen. Für Ost-West muss der Wert der beiden Halb-Leistungs-Abfragen addiert werden. Die Resultate sind prüfpflichtig. Unterkonstruktion, Ballastierung, Kabel, Stringaufteilung und Schutzkomponenten müssen projektspezifisch ausgelegt werden. Vor dem Versand sind Produktwahl, Mengen und Anforderungen fachlich zu prüfen.
