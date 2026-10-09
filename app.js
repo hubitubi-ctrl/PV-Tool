@@ -45,4 +45,5 @@ window.addEventListener('pv-plan-result',e=>{
  items.forEach(x=>state.lines.push({id:crypto.randomUUID(),...x,url:''}));
  save();toast('Modul- und Flächenmengen ins Leistungsverzeichnis übernommen');
 });
-\nrender();\n
+
+render();
