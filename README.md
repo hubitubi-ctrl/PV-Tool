@@ -21,7 +21,7 @@ Die Katalog-CSV verwendet die Spalten: Produktname, Lieferant, Kategorie, Artike
 
 ## Struktur des Leistungsverzeichnisses
 
-Die Kapitel A–H decken Projektbedingungen, Dacharbeiten/Montagegrund, PV-Generator und Unterkonstruktion, Elektroinstallation/Schutz, Absturzsicherung/Zugang, Planung/Nachweise, Inbetriebnahme/Dokumentation und Optionen ab. Diese Struktur wurde aus sechs bereitgestellten PV-Leistungsverzeichnissen zusammengeführt und für die Anwendung vereinheitlicht. Sie ist kein normverbindlicher NPK-Text und beansprucht keine automatische Normkonformität.
+Die Der BKP-Code (z. B. 231.0 oder 231.5) bleibt projektspezifisch editierbar. Kapitel A–H decken Projektbedingungen, Dacharbeiten/Montagegrund, PV-Generator und Unterkonstruktion, Elektroinstallation/Schutz, Absturzsicherung/Zugang, Planung/Nachweise, Inbetriebnahme/Dokumentation und Optionen ab. Diese Struktur wurde aus sechs bereitgestellten PV-Leistungsverzeichnissen zusammengeführt und für die Anwendung vereinheitlicht. Sie ist kein normverbindlicher NPK-Text und beansprucht keine automatische Normkonformität.
 
 ## Fachliche Grenzen
 
