@@ -1,34 +1,32 @@
-# PV Beschaffungsassistent
+# PV-Ausschreibungsassistent
 
-Ein statischer Web-Prototyp für projektbezogene Material-Leistungsverzeichnisse. Für lokale Nutzung ist kein Build-Schritt nötig; die App ist für GitHub Pages vorbereitet.
+Statische Webanwendung für Dachplanaufnahme, Mengen-Vorplanung und Erstellung eines bearbeitbaren PV-Leistungsverzeichnisses. Die Website läuft über GitHub Pages und benötigt keinen Server.
 
 ## Start
 
-`index.html` im Browser öffnen. Projektangaben, Produktkatalog und Entwürfe bleiben lokal in diesem Browser gespeichert.
+Öffne die GitHub-Pages-Website oder starte `index.html` lokal. Auf der ersten Seite gibt es nur **Plan hinzufügen** und **Bestehendes Projekt laden**.
 
-## Funktionen
+## Ablauf
 
-- Projektangaben für Dachart, Fläche, Ausrichtung und Ziel-Leistung
-- Dachplan als PDF oder Bild laden; Massstab über eine eigene Schaltfläche in einer zoombaren Planansicht kalibrieren und Fläche/Hindernisse dort markieren
-- Himmelsrichtung, Standortkoordinaten, Dachneigung und Systemverluste für eine vorläufige PVGIS-Jahresprognose übergeben; Ost-West wird mit zwei getrennten Halb-Leistungs-Abfragen abgebildet
-- Hindernisflächen abziehen, Modulformat (gängige Abmessungen oder benutzerdefiniert) und Abstände einstellen sowie die bessere Portrait-/Landscape-Belegung vergleichen
-- Modulanzahl, Modul-Belegungsfläche und bearbeitete Dachfläche als prüfpflichtige Positionen ins LV übernehmen
-- Neutrale Materialanforderungen für Module, Unterkonstruktion, Wechselrichter, Optimierer, Kabel, Überspannungsschutz sowie Erdung/Blitzschutz
-- Lieferantenprodukte manuell erfassen oder per CSV importieren
-- Produkte technischen Anforderungen zuordnen und Links im LV referenzieren
-- Materialpositionen ergänzen; Mengen als offen, bekannt oder prüfpflichtig kennzeichnen
-- Excel-kompatibles CSV-LV mit leeren Preisfeldern für Anbieter exportieren
+1. Dachplan als Bild oder PDF laden. Nach jedem Plan-Upload muss der Massstab über eine bekannte Strecke neu kalibriert werden. Die Planansicht ist zoombar.
+2. Dachbereiche markieren: Arbeitsfläche, PV-Fläche, Sperrzone, dauerhafte Absturzsicherung, Anschlagpunkte, provisorische Sicherung sowie sicherer Zugang. Pro PV-Fläche werden Montageart und Modulausrichtung erfasst. Montagelattung bei Indach kann separat ausgewiesen werden.
+3. Produkte und Lieferanten manuell oder via CSV-Katalog erfassen; Modulmasse und Nennleistung steuern ein geometrisches Belegungsraster. Gleichwertige Alternativen bleiben für die Ausschreibung möglich.
+4. LV aus Vorlagenkapiteln erzeugen. Planbezogene Mengen, Produktreferenzen und generische Fachpositionen können ergänzt werden. Jeder Beschreibungstext und jede projektspezifische Spezifikation ist bearbeitbar. Export als Excel-kompatible CSV, ohne Produktpreise.
 
-## Katalog-CSV
+## Projektdatei und Shopkatalog
 
-Spaltenüberschriften: `Produktname`/`name`, `Lieferant`/`supplier`, `Kategorie`/`category`, `Artikelnummer`/`sku`, `Einheit`/`unit`, `Leistung Wp`/`powerWp`, `Beschreibung`/`description`, `Produktlink`/`url`. Semikolon oder Komma werden als Trennzeichen erkannt.
+Plan und Eingaben bleiben standardmässig im Browser. Mit **Projektdatei speichern** wird eine `.pvprojekt`-Datei erzeugt; diese kann auf einem anderen Gerät über **Bestehendes Projekt laden** geöffnet werden. Eine Shop-Schnittstelle muss einen autorisierten Produktdatenfeed oder CSV-Export bereitstellen. Die App liest Shopseiten nicht automatisch aus.
+
+Die Katalog-CSV verwendet die Spalten: Produktname, Lieferant, Kategorie, Artikelnummer, Einheit, Leistung Wp, Breite mm, Höhe mm, Beschreibung, Produktlink. Eine leere Importvorlage lässt sich herunterladen.
+
+## Struktur des Leistungsverzeichnisses
+
+Die Kapitel A–H decken Projektbedingungen, Dacharbeiten/Montagegrund, PV-Generator und Unterkonstruktion, Elektroinstallation/Schutz, Absturzsicherung/Zugang, Planung/Nachweise, Inbetriebnahme/Dokumentation und Optionen ab. Diese Struktur wurde aus sechs bereitgestellten PV-Leistungsverzeichnissen zusammengeführt und für die Anwendung vereinheitlicht. Sie ist kein normverbindlicher NPK-Text und beansprucht keine automatische Normkonformität.
+
+## Fachliche Grenzen
+
+Das Modulraster ist eine geometrische Vorplanung innerhalb des markierten PV-Polygons; es prüft nur die Mittelpunkte gegen Sperrzonen. Dachkanten, Abstände, Modulzwischenräume im System, Brandschutzwege, Verschattung, Statik, Wind-/Schneelasten, Stringplanung, Schutzkonzept und Montagevorschriften sind fachlich zu verifizieren. Mengen sind als Vorschlag oder offen gekennzeichnet. Die App ist nicht für die Ausführungsplanung freigegeben. PDF-Anzeige lädt PDF.js von jsDelivr und benötigt eine Internetverbindung. Standort in Google Maps öffnen ist eine freiwillige externe Suche nach dem eingetragenen Ort.
 
 ## GitHub Pages
 
-GitHub Pages muss im Repository unter **Settings → Pages** als Build-Quelle **GitHub Actions** aktiviert sein. Danach wird die Website bei Änderungen am Branch `main` automatisch veröffentlicht. Ein manueller Start ist weiterhin im Tab **Actions** möglich.
-
-## Grenzen des Prototyps
-
-Die eingebauten Einträge sind neutrale technische Anforderungen, keine bestätigten Shopartikel. Die App ruft keine Preise, Lagerbestände oder Shopseiten automatisch ab. Shopdaten werden vorerst via CSV oder manuell eingebunden; automatische Katalogfeeds benötigen eine freigegebene Lieferantenschnittstelle.
-
-Die Modulzahl aus dem Dachplan ist eine geometrische Vorplanung auf Basis des markierten Polygons, Kalibrierung, Modulmass und Rasterabstand. Randabstände, Dachaufbauten, Brandschutzwege, Statik sowie Wind-/Schneelasten sind nicht automatisch geprüft. PDF-Anzeige verwendet PDF.js und benötigt beim Öffnen eine Internetverbindung; die Plandatei selbst bleibt lokal im Browser. Für die PVGIS-Prognose öffnet sich der offizielle JRC-Dienst in einem neuen Tab; PVGIS erlaubt keine AJAX-Aufrufe direkt aus dem Browser. Die Jahresproduktion ist im Ergebnis unter `E_y` ausgewiesen. Für Ost-West muss der Wert der beiden Halb-Leistungs-Abfragen addiert werden. Die Resultate sind prüfpflichtig. Unterkonstruktion, Ballastierung, Kabel, Stringaufteilung und Schutzkomponenten müssen projektspezifisch ausgelegt werden. Vor dem Versand sind Produktwahl, Mengen und Anforderungen fachlich zu prüfen.
+Repository: `hubitubi-ctrl/PV-Tool`. Der `main`-Branch veröffentlicht über `.github/workflows/pages.yml`.
